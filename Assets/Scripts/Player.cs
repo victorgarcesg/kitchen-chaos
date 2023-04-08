@@ -1,7 +1,16 @@
+using System;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public static Player Instance { get; private set; }
+
+    public event EventHandler<OnSelectedCounterChangedArgs> OnSelectedCounterChanged;
+    public class OnSelectedCounterChangedArgs : EventArgs
+    {
+        public ClearCounter selectedCounter;
+    }
+
     [SerializeField] private float moveSpeed = 7f;
     [SerializeField] private float moveRotation = 10f;
     [SerializeField] private GameInput gameInput;
@@ -9,6 +18,29 @@ public class Player : MonoBehaviour
 
     private bool isWalking;
     private Vector3 lastInteractDir;
+    private ClearCounter selectedCounter;
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Debug.LogError("There are more than one Player instace");
+        }
+        Instance = this;
+    }
+
+    private void Start()
+    {
+        gameInput.OnInteractAction += GameInput_OnInteractAction;
+    }
+
+    private void GameInput_OnInteractAction(object sender, EventArgs e)
+    {
+        if (selectedCounter != null)
+        {
+            selectedCounter.Interact();
+        }
+    }
 
     private void Update()
     {
@@ -30,8 +62,21 @@ public class Player : MonoBehaviour
         if (Physics.Raycast(transform.position, lastInteractDir, out RaycastHit raycastHit, interactionDistance, layerMask)
             && raycastHit.transform.TryGetComponent(out ClearCounter clearCounter))
         {
-            clearCounter.Interact();
+            SetSelectedCounter(clearCounter);
         }
+        else
+        {
+            SetSelectedCounter(null);
+        }
+    }
+
+    private void SetSelectedCounter(ClearCounter clearCounter)
+    {
+        selectedCounter = clearCounter;
+        OnSelectedCounterChanged?.Invoke(this, new OnSelectedCounterChangedArgs
+        {
+            selectedCounter = selectedCounter
+        });
     }
 
     private void HandleMovement()
