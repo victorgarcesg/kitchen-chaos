@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SelectedCounterVisual : MonoBehaviour
 {
-    [SerializeField] ClearCounter selectedCounter;
+    [SerializeField] ClearCounter clearCounter;
     [SerializeField] GameObject counterVisual;
 
     private void Start()
@@ -12,6 +12,6 @@ public class SelectedCounterVisual : MonoBehaviour
 
     private void Player_OnSelectedCounterChanged(object sender, Player.OnSelectedCounterChangedArgs e)
     {
-        counterVisual.SetActive(e.selectedCounter == selectedCounter);
+        counterVisual.SetActive(e.selectedCounter == clearCounter);
     }
 }

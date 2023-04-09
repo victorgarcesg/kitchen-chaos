@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
     public static Player Instance { get; private set; }
 
     public event EventHandler<OnSelectedCounterChangedArgs> OnSelectedCounterChanged;
-    public class OnSelectedCounterChangedArgs : EventArgs
+    public sealed class OnSelectedCounterChangedArgs : EventArgs
     {
         public ClearCounter selectedCounter;
     }
