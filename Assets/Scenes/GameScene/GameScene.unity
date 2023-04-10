@@ -561,7 +561,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3146095462699933408, guid: 7af3876223175724abd2374d17b94f1e,
         type: 3}
+      propertyPath: testing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3146095462699933408, guid: 7af3876223175724abd2374d17b94f1e,
+        type: 3}
       propertyPath: secoundCounter
+      value: 
+      objectReference: {fileID: 285943207}
+    - target: {fileID: 3146095462699933408, guid: 7af3876223175724abd2374d17b94f1e,
+        type: 3}
+      propertyPath: secondClearCounter
       value: 
       objectReference: {fileID: 285943207}
     - target: {fileID: 7303913145442204065, guid: 7af3876223175724abd2374d17b94f1e,
@@ -993,6 +1003,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2130622561}
+  - {fileID: 1590734783}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1014,6 +1025,38 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 64
+  kitchenObjectTopPoint: {fileID: 1590734783}
+--- !u!1 &1590734782
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1590734783}
+  m_Layer: 0
+  m_Name: KitchenObjectTopPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1590734783
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1590734782}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.3, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1425838120}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2130622560 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3294758251327466535, guid: 1c5dda3c7cd3cf742afcade5419faeab,
