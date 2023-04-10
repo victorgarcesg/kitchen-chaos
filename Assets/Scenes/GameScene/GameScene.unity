@@ -123,6 +123,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &285943207 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3146095462699933408, guid: 7af3876223175724abd2374d17b94f1e,
+    type: 3}
+  m_PrefabInstance: {fileID: 4773179134528808674}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d8300f554150c04798748a7659b9174, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -549,10 +561,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3146095462699933408, guid: 7af3876223175724abd2374d17b94f1e,
         type: 3}
-      propertyPath: kitchenObjectSO
+      propertyPath: secoundCounter
       value: 
-      objectReference: {fileID: 11400000, guid: 8258951e944c0f7489f78b95b85452da,
-        type: 2}
+      objectReference: {fileID: 285943207}
     - target: {fileID: 7303913145442204065, guid: 7af3876223175724abd2374d17b94f1e,
         type: 3}
       propertyPath: m_Name
@@ -1095,7 +1106,7 @@ PrefabInstance:
         type: 3}
       propertyPath: kitchenObjectSO
       value: 
-      objectReference: {fileID: 11400000, guid: b67eddebb611b354dbf1f990e3c5260e,
+      objectReference: {fileID: 11400000, guid: 8258951e944c0f7489f78b95b85452da,
         type: 2}
     - target: {fileID: 7303913145442204065, guid: 7af3876223175724abd2374d17b94f1e,
         type: 3}
