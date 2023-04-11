@@ -1,18 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
-public class ContainerCounter : MonoBehaviour
+public class ContainerCounter : BaseCounter
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public event EventHandler OnPlayerGrabbedObject;
+    [SerializeField] private KitchenObjectSO kitchenObjectSO;
 
-    // Update is called once per frame
-    void Update()
+    public override void Interact(Player player)
     {
-        
+        if (!HasKitchenObject())
+        {
+            Transform prefab = Instantiate(kitchenObjectSO.prefab, GetKitchenObjectFollowPoint());
+            prefab.GetComponent<KitchenObject>().SetKitchenObjectParent(player);
+            OnPlayerGrabbedObject?.Invoke(this, EventArgs.Empty);
+        }
     }
 }

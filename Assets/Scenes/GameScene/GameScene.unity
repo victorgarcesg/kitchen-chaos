@@ -484,6 +484,12 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
+--- !u!4 &426596503 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2020317637387730047, guid: 5b196ce7f38cb8847be1d66d98f6c5e8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1033505384}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -541,6 +547,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1287060372829069956, guid: 5b196ce7f38cb8847be1d66d98f6c5e8,
+        type: 3}
+      propertyPath: kitchenObjectSO
+      value: 
+      objectReference: {fileID: 11400000, guid: b67eddebb611b354dbf1f990e3c5260e,
+        type: 2}
     - target: {fileID: 1904449455099188875, guid: 5b196ce7f38cb8847be1d66d98f6c5e8,
         type: 3}
       propertyPath: m_RootOrder
@@ -687,6 +699,23 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1287060372829069956, guid: 5b196ce7f38cb8847be1d66d98f6c5e8,
+        type: 3}
+      propertyPath: counterTopPoint
+      value: 
+      objectReference: {fileID: 426596503}
+    - target: {fileID: 1287060372829069956, guid: 5b196ce7f38cb8847be1d66d98f6c5e8,
+        type: 3}
+      propertyPath: kitchenObjectSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 8258951e944c0f7489f78b95b85452da,
+        type: 2}
+    - target: {fileID: 1563092786889220781, guid: 5b196ce7f38cb8847be1d66d98f6c5e8,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 91e8fe3de9249fc44b7bdd8050062896,
+        type: 3}
     - target: {fileID: 1904449455099188875, guid: 5b196ce7f38cb8847be1d66d98f6c5e8,
         type: 3}
       propertyPath: m_RootOrder
