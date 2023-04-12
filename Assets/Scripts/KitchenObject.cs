@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class KitchenObject : MonoBehaviour
@@ -27,5 +28,20 @@ public class KitchenObject : MonoBehaviour
 
         transform.parent = kitchenObjectParent.GetKitchenObjectFollowPoint();
         transform.localPosition = Vector3.zero;
+    }
+
+    public void DestroySelf()
+    {
+        kitchenObjectParent.ClearKitchenObject();
+        Destroy(gameObject);
+    }
+
+    public static KitchenObject SpawnKitchenObject(KitchenObjectSO kitchenObjectSO, IKitchenObjectParent kitchenObjectParent)
+    {
+        Transform prefab = Instantiate(kitchenObjectSO.prefab);
+        KitchenObject kitchenObject = prefab.GetComponent<KitchenObject>();
+        kitchenObject.SetKitchenObjectParent(kitchenObjectParent);
+
+        return kitchenObject;
     }
 }
