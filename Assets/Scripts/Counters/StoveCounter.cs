@@ -110,6 +110,10 @@ public class StoveCounter : BaseCounter, IHasProgress
                 {
                     State = state
                 });
+                OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
+                {
+                    progressNormalized = 0f
+                });
             }
         }
         else
