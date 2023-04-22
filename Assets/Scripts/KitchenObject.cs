@@ -1,9 +1,8 @@
-using System;
 using UnityEngine;
 
 public class KitchenObject : MonoBehaviour
 {
-    [SerializeField] KitchenObjectSO kitchenObjectSO;
+    [SerializeField] private KitchenObjectSO kitchenObjectSO;
     private IKitchenObjectParent kitchenObjectParent;
 
     public KitchenObjectSO GetKitchenObjectSO() => kitchenObjectSO;
