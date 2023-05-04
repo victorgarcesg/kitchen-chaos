@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -5,6 +6,8 @@ using Random = UnityEngine.Random;
 
 public class DeliveryManager : MonoBehaviour
 {
+    public event EventHandler OnRecipeSpawned;
+    public event EventHandler OnRecipeCompleted;
     public static DeliveryManager Instance { get; private set; }
     
     [SerializeField] private AvailableRecipeSO availableRecipeSO;
@@ -30,7 +33,7 @@ public class DeliveryManager : MonoBehaviour
 
         var waitingRecipeSO = availableRecipeSO.availableRecipeSOList[Random.Range(0, availableRecipeSO.availableRecipeSOList.Count)];
         waitingRecipeSOList.Add(waitingRecipeSO);
-        Debug.Log(waitingRecipeSO);
+        OnRecipeSpawned?.Invoke(this, EventArgs.Empty);
     }
 
     public void DeliverRecipe(PlateKitchenObject plateKitchenObject)
@@ -44,14 +47,22 @@ public class DeliveryManager : MonoBehaviour
             
             // Has same number of ingredients
             bool plateContentMatchesRecipe = waitingRecipeSO.kitchenObjectsSO.All(recipeKitchenObjectSO => playerKitchenObjectSOList.Any(playerKitchenObjectSO => recipeKitchenObjectSO == playerKitchenObjectSO));
-            if (!plateContentMatchesRecipe)
+            if (plateContentMatchesRecipe)
             {
-                Debug.Log("Player delivered the correct recipe");
                 waitingRecipeSOList.RemoveAt(i);
+                OnRecipeCompleted?.Invoke(this, EventArgs.Empty);
+                
+                Debug.Log("Player delivered correct recipe");
                 return;
             }
         }
         
+        // Player did not deliver correct recipe
         Debug.Log("Player did not deliver correct recipe");
+    }
+
+    public List<RecipeSO> GetWaitingRecipeSOList()
+    {
+        return waitingRecipeSOList;
     }
 }
